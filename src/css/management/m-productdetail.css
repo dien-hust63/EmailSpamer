@@ -1,0 +1,95 @@
+.product-detail-inventory{
+    display: flex !important;
+    flex-direction: row;
+    align-items: center;
+}
+
+.product-detail-inventory-icon{
+    cursor: pointer;
+}
+
+.product-detail-main-image{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.product-detail-list-bonus{
+    /* display: flex; */
+}
+
+.product-detail-attribute-area  {
+    border: 1px solid #ededed;
+}
+
+.product-detail-instance-area{
+    border: 1px solid #ededed;
+}
+
+.product-detail-area-instance-content{
+    padding: 2px 8px;
+}
+
+.product-detail-area-title{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #ededed;
+    box-sizing: border-box;
+    border-radius: 4px;
+    padding: 4px 16px 4px 4px;
+    width: 100%;
+    cursor: pointer;
+}
+.product-detail-attribute{
+    padding: 0 70px;
+    width: 100%;
+}
+
+.product-detail-attribute-size{
+    display: flex;
+    align-items: center;
+    justify-content: start;
+
+}
+
+.product-detail-attribute-color{
+
+}
+.attribute-title{
+    width: 100px;
+    color: brown;
+    font-size: 18px;
+}
+
+/* table Danh sách hàng hóa cùng loại*/
+.bkc-table-product-detail-instance{
+    width: 100%;
+}
+
+.bkc-table-cart{
+    width: 100%;
+},
+.bkc-table-cart-row .delete-icon{
+    cursor: pointer;
+}
+
+.bkc-table-cart-cell{
+    vertical-align:center;
+    padding: 10px 10px 10px 0;
+
+}
+
+
+.bkc-table-cart-product-name{
+    display: flex;
+}
+
+.table-cart-img{
+    width: 100px;
+    max-height: 400px;
+}
+
+.delete-icon{
+    cursor: pointer;
+}

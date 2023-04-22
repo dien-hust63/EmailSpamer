@@ -1,0 +1,159 @@
+html, body{
+    margin: 0 !important;
+    height: 100% !important;
+    min-height: 100% !important;
+    max-height: 100vh !important;
+
+}
+
+.v-main__wrap{
+    /* min-width: 900px !important; */
+    max-height: 100vh !important;
+}
+.bk-flex{
+    display: flex !important;
+    align-items: center !important;
+}
+
+.bk-flex-center{
+    justify-content: center;
+}
+
+.bk-flex-between{
+    justify-content: space-between;
+}
+
+.bk-flex-start{
+    justify-content: flex-start;
+}
+
+.bk-flex-end{
+    justify-content: flex-end;
+}
+
+
+/* Bootstrap 4 text input with search icon */
+
+.has-search .form-control {
+    padding-left: 2.375rem;
+}
+
+.has-search .form-control:focus{
+    border-color: #673ab7 ;
+    outline: 0;
+    box-shadow: 0 0 0 0.1rem rgb(13 110 253 / 25%);
+}
+
+.has-search .form-control-feedback {
+    position: absolute;
+    z-index: 2;
+    display: block;
+    width: 2.375rem;
+    height: 2.375rem;
+    line-height: 2.375rem;
+    text-align: center;
+    pointer-events: none;
+    color: #aaa;
+}
+.v-data-table{
+    margin-top:  0px !important;
+    height: 100%;
+}
+.v-data-table th{
+    font-size: 16px !important;
+    color: black !important;
+}
+
+.v-data-table__wrapper{
+    overflow-y: auto;
+}
+
+.bk-list{
+    position: relative;
+    height: 100%;
+    padding: 30px 30px 0 30px;
+}
+.bk-list-footer{
+    position: absolute;
+    bottom: 0;
+    left:0;
+    width: 100%;
+    padding: 0 30px;
+    height: 100px;
+    max-height: 60px;
+}
+
+.bk-list-footer div.col{
+    height: 60px;
+}
+
+.bk-paging-number .v-input__control{
+    height: 60px !important;
+}
+.bk-list-body{
+    height: calc(100vh - 235px);
+    padding: 15px 0 30px 0;
+}
+
+.bk-list .v-data-table__wrapper {
+    height: 100%;
+    overflow-y: auto;
+    
+}
+.bk-detail{
+    height: 100%;
+}
+.bk-detail-toolbar{
+    border-bottom: 1px #adad85 solid !important ;
+    height: 56px !important;
+}
+.bk-detail-content{
+    height: calc(100% - 56px);
+    padding-left: 40px;
+    padding-right: 40px;
+    overflow: auto;
+}
+
+
+.bk-detail-toolbar .v-toolbar__title{
+    font-size: 24px;
+    font-weight: bold;
+}
+
+
+.v-input--is-disabled *{
+     color: rgba(0,0,0,0.87) !important
+}
+
+.v-input--is-disabled .v-input__control{
+    background-color: rgba(0,0,0,0.05) !important;
+    border-radius: 4px !important;
+}
+ 
+.bk-image-upload-icon{
+    width: 100%;
+    object-fit: contain;
+    object-position: center;
+    
+}
+
+/* width */
+::-webkit-scrollbar {
+    width: 7px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+    background: #f1f1f1;
+  }
+  
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    background: rgba(136, 136, 136, 0.863);
+    border-radius: 7px;
+  }
+  
+  /* Handle on hover */
+  ::-webkit-scrollbar-thumb:hover {
+    background: rgba(85, 85, 85, 0.788);
+  }

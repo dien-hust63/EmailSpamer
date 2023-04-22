@@ -1,0 +1,22 @@
+.bkc-productlisttab{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.product-category-item{
+    cursor: pointer;
+    padding: 40px 100px;
+    box-sizing: border-box;
+}
+.product-category-item .main-category{
+    font-weight: bold;
+    font-size: 20px;
+    border-bottom: 1px solid #bfbfbf;
+    min-width: 200px;
+} 
+.product-category-item  .sub-category-item:hover{
+    color: #ff4d4d;
+}
+.product-category-item  .sub-category-item{
+    padding: 5px 0px;
+}

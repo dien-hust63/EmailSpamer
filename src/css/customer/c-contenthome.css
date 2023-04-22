@@ -1,0 +1,21 @@
+.c-product-area-content{
+    padding: 10px 20px;
+
+}
+.c-product-area-item{
+}
+
+.c-product-area-title{
+    text-align: center;
+    font-size: 25px;
+}
+.bkc-main-content-home{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+.bkc-main-content-home .c-product-area{
+    width: 70%;
+    
+}

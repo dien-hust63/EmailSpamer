@@ -1,0 +1,15 @@
+.bkc-product-category{
+    padding: 10px 30px;
+
+}
+.bkc-product-category-header{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.empty-region-image{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}

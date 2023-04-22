@@ -1,0 +1,31 @@
+.bkc-checkout-result{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    width: 100%;
+}
+.bkc-checkout-result-success, .bkc-checkout-result-fail{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.bkc-checkout-result-success .img-checkout-success{
+    height: 100px;
+    width: 100px;
+    background-image: url("../../../public/success.png");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+
+.bkc-checkout-result-fail .img-checkout-fail{
+    height: 100px;
+    width: 100px;
+    background-image: url("../../../public/fail.png");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+}

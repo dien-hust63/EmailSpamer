@@ -1,0 +1,16 @@
+.role-permission-module-item{
+    display: flex;
+    align-items: center;
+    padding-left: 48px;
+}
+
+.role-permission-module-item-title{
+    font-weight: 700;
+    margin-right: 30px;
+    width: 100px;
+}
+
+.role-permission-module-item-content{
+    display: flex;
+    align-items: center;
+}

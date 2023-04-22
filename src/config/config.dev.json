@@ -1,0 +1,10 @@
+{
+  
+  "BASE_URL_API": "https://localhost:7079/api/v1",
+  "GHN_URL_API": "https://dev-online-gateway.ghn.vn",
+  "AZURE_CONNECTION_STRING": "DefaultEndpointsProtocol=https;AccountName=nvdien;AccountKey=k7RJKE4kIJysDEsisq6FyKV/EEWMQkrSy6TWf5ITZ163LP/bwIVlGqzLb4C6+JBDwnPpE3xhZU46+ASttaoUfg==;EndpointSuffix=core.windows.net",
+  "AZURE_CONTAINER_NAME": "images",
+  "AZURE_STORAGE_BASE_URL": "https://nvdien1.blob.core.windows.net/image/"
+}
+
+

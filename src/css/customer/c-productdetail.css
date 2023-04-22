@@ -1,0 +1,123 @@
+.bkc-product-detail{
+    padding-top:30px;
+}
+
+.product-detail-content{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
+
+@media screen and (min-width: 800px) {
+    .product-detail-content {
+      flex-direction: row;
+    }
+}
+.product-detail-left{
+    max-width: 400px;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+}
+.product-detail-right{
+    padding-left: 30px;
+    max-width: 600px;
+}
+.product-detail-right .product-name{
+    font-size: 25px;
+    font-weight: bold;
+}
+
+.product-detail-right .product-price{
+    color: #ff4d4d;
+    font-weight: bold;
+}
+
+.product-color{
+    margin-top: 20px
+}
+.product-color-image{
+    display: flex;
+    align-items: center;
+    justify-content: start;
+}
+
+.product-color-image-item{
+    width: 50px;
+    height: auto;
+    cursor: pointer;
+    border: 1px solid white;
+    margin-left: 4px;
+}
+
+.product-color-image-item--active{
+    border: 1px solid #ff4d4d;
+}
+
+.product-size{
+    display: flex;
+    align-items: center;
+    margin-top: 16px
+}
+
+.product-size-title{
+    font-weight: bold;
+}
+.product-size-list{
+    display: flex;
+    align-items: center;
+    justify-content: start;
+}
+.product-size-list-item{
+    background-color: #f1f1f1;
+    width: 30px;
+    height: 30px;
+    box-sizing: border-box;
+    padding: 2px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: 4px;
+    cursor: pointer;
+}
+.product-size-list-item--active{
+    border: 1px solid #999;
+}
+
+.product-quantity{
+    display: flex;
+    align-items: center;
+    justify-content: start;
+    margin-top: 16px;
+    margin-bottom: 20px;
+}
+
+.btn-add-card{
+    height: 48px;
+    width: 300px;
+    cursor: pointer;
+}
+.product-description-content pre{
+    max-height: 300px;
+    overflow: auto;
+    font: 16px Roboto !important;
+}
+
+.product-description{
+    margin-top: 20px;
+}
+
+
+.product-list-relate{
+    margin-top: 60px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.product-list-relate .c-product-area{
+    width: 70%;
+}
+

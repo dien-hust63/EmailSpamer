@@ -1,0 +1,29 @@
+.bkc-footer{
+    background-color: #fff;
+    border-top: 1px solid #bfbfbf;
+    padding: 30px 40px 0 40px;
+    box-sizing: border-box;
+}
+
+.bkc-footer-content{
+    display: flex;
+    justify-content: center;
+}
+
+.footer-category-item{
+    padding: 0px 50px;
+    min-width: 150px;
+}
+.footer-category-item .main-category{
+    font-weight: bold;
+    font-size: 20px;
+    min-width: 150px;
+}
+
+.bkc-footer-end{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-top: 1px solid #bfbfbf;
+    padding: 10px;
+}

@@ -1,0 +1,43 @@
+.bk-report-list{
+    padding: 20px 20px;
+}
+.bk-report-area-header{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+}
+.bk-report-area-title .main-title{
+    font-weight: bold;   
+    font-size: 20px;
+}
+
+/* .bk-report-area-title .main-title{
+    font-weight: bold;   
+    font-size: 20px;
+} */
+.bk-report-area-filter{
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}
+.barchart1{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.bk-report-area-group{
+    display: flex;
+}
+
+.bk-report-area-group .bk-report-area{
+    padding: 20px;
+    margin: 20px 5px 5px 5px;
+    border: 1px solid #bfbfbf;
+    box-sizing: border-box;
+
+}
+
+.v-menu__content{
+    z-index: 10000 !important;
+}

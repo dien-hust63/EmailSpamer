@@ -1,0 +1,18 @@
+
+.m-header{
+    height: 145px;
+    max-height: 145px;
+}
+.m-header-title .sub-title{
+
+}
+.m-header-toolbar{
+}
+
+.m-header-search{
+    width: 300px;
+}
+
+.branch-area-toolbar .v-input__slot{
+    height: 32px !important;
+}
