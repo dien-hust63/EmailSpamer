@@ -15,7 +15,7 @@
             class="d-block text-center mx-auto mt-4 mb-10"
             size="120"
           >
-            <v-img src="https://nvdien1.blob.core.windows.net/image/360formen.png"></v-img>
+            <v-img src="../../../assets/images/emailspam.png"></v-img>
           </v-avatar>
           <!-- <h6>{{ userInfo.username}} ( {{ userInfo.usercode}} )</h6> -->
         </v-list-item-title>

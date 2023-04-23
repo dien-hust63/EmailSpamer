@@ -3,7 +3,7 @@
     <div class="login-card">
       <img
         id="profile-img"
-        src="https://nvdien1.blob.core.windows.net/image/360formen.png"
+        src="../../../assets/images/emailspam.png"
         class="profile-img-card"
       />
       <v-form
@@ -111,7 +111,7 @@ export default {
   display: flex;
   align-items: center;
   justify-content: center;
-  background-image: url("https://nvdien1.blob.core.windows.net/image/loginbg.jpg");
+  background-image: url("../../../assets/images/loginbg.jpg");
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
@@ -132,12 +132,12 @@ export default {
 }
 
 .profile-img-card {
-  width: 120px;
-  height: 120px;
+  width: 80px;
+  height: 80px;
   margin: 0 auto 10px;
   display: block;
-  -moz-border-radius: 50%;
+  /* -moz-border-radius: 50%;
   -webkit-border-radius: 50%;
-  border-radius: 50%;
+  border-radius: 50%; */
 }
 </style>
