@@ -9,6 +9,7 @@
       :isShowDelete="isShowDelete"
       deleteBtn="Xóa người nhận"
       searchTitle="Tìm kiếm theo email người nhận"
+      :isImport="true"
       @onSearch="searchData"
     />
     <div class="bk-list-body">

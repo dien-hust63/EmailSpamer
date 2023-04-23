@@ -13,7 +13,7 @@
         >
           <v-avatar
             class="d-block text-center mx-auto mt-4 mb-10"
-            size="120"
+            size="100"
           >
             <v-img src="../../../assets/images/emailspam.png"></v-img>
           </v-avatar>

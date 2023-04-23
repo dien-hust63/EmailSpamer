@@ -21,15 +21,37 @@
           class="branch-area-toolbar ml-4"
           v-if="isShowBranch"
         >
-          <v-combobox
-            label="Chi nhánh"
-            v-model="chosenBranch"
-            item-text="text"
-            item-value="id"
-            :items="listBranch"
-            return-object
-            @change="changebranch($event)"
-          ></v-combobox>
+          <v-btn
+            color="primary"
+            v-show="!isHideAddBtn"
+            @click="openAddForm()"
+          >
+            <v-icon left>
+              fas fa-plus
+            </v-icon>
+            {{ addBtn }}
+          </v-btn>
+        </div>
+        <div
+          class="branch-area-toolbar ml-4"
+          v-if="isImport"
+        >
+          <v-btn
+            color="primary"
+            v-show="!isHideAddBtn"
+            @click="$refs.importUpload.click()"
+          >
+            <v-icon left>
+              fas fa-plus
+            </v-icon>
+            Nhập khẩu
+          </v-btn>
+          <input
+            style="display:none"
+            type="file"
+            @change="onFileSelected"
+            ref="importUpload"
+          >
         </div>
 
       </div>
@@ -71,6 +93,7 @@
             </v-card-actions>
           </v-card>
         </v-dialog>
+
         <v-btn
           color="primary"
           v-show="!isHideAddBtn"
@@ -107,6 +130,7 @@ export default {
     deleteBtn: String,
     searchTitle: String,
     isShowBranch: Boolean,
+    isImport: Boolean,
     listPermission: String,
     isHideAddBtn: Boolean,
   },
@@ -129,6 +153,16 @@ export default {
     }
   },
   methods: {
+    onFileSelected(event) {
+      const file = event.target.files[0];
+      this.newImageRaw = file;
+      const theReader = new FileReader();
+      theReader.onloadend = async () => {
+        this.newImage = await theReader.result;
+      };
+      theReader.readAsDataURL(file);
+      this.$emit("onFileSelected", file);
+    },
     changebranch(e) {
       this.$emit("changeBranch", e);
     },
