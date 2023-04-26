@@ -125,6 +125,59 @@
                 ></v-text-field>
               </v-col>
             </v-row>
+            <v-row>
+              <v-col
+                cols="12"
+                sm="5"
+                class="px-8"
+              >
+                <v-text-field
+                  label="Nội dung email"
+                  :disabled="isViewMode"
+                  type="file"
+                ></v-text-field>
+              </v-col>
+              <v-col sm="2"></v-col>
+              <v-col
+                cols="12"
+                sm="5"
+                class="px-8"
+              >
+                <v-text-field
+                  label="Số email đã gửi đi"
+                  :disabled="true"
+                  type="number"
+                  v-show="isViewMode"
+                ></v-text-field>
+              </v-col>
+            </v-row>
+            <v-row>
+              <v-col
+                cols="12"
+                sm="5"
+                class="px-8"
+              >
+                <v-text-field
+                  label="Số email chưa gửi"
+                  :disabled="true"
+                  type="number"
+                  v-show="isViewMode"
+                ></v-text-field>
+              </v-col>
+              <v-col sm="2"></v-col>
+              <v-col
+                cols="12"
+                sm="5"
+                class="px-8"
+              >
+                <v-text-field
+                  label="Số email unsubcribe"
+                  :disabled="true"
+                  type="number"
+                  v-show="isViewMode"
+                ></v-text-field>
+              </v-col>
+            </v-row>
           </v-container>
         </v-form>
       </v-card-text>

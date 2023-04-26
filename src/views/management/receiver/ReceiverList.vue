@@ -11,6 +11,7 @@
       searchTitle="Tìm kiếm theo email người nhận"
       :isImport="true"
       @onSearch="searchData"
+      @onFileSelected="onImport"
     />
     <div class="bk-list-body">
       <v-data-table
@@ -22,6 +23,7 @@
         hide-default-footer
         fixed-header
         @dblclick:row="dblclickRow"
+        :key="tableKey"
       >
       </v-data-table>
     </div>
@@ -111,6 +113,7 @@ export default {
   },
   data() {
     return {
+      tableKey: false,
       isShowDelete: false,
       validForm: true,
       rules: {
@@ -171,6 +174,24 @@ export default {
   },
 
   methods: {
+    onImport(file) {
+      let param = new FormData();
+      param.append("file", file, file.name);
+      const me = this;
+      ReceiverService.importReceiver(param).then((result) => {
+        if (result && result.data) {
+          if (result.data.success) {
+            me.$toast.success("Nhập khẩu thành công!");
+            me.tableKey = !me.tableKey;
+          } else {
+            me.$toast.error(result.data.errorMessage);
+          }
+        }
+      });
+      me.$toast.success(
+        "Hệ thống đang nhập khẩu dữ liệu. Chúng tôi sẽ thông báo cho bạn khi quá trình hoàn thành."
+      );
+    },
     /**
      * Tim kiem theo ma va ten vai tro
      * @param {} data
