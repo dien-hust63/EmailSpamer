@@ -126,15 +126,45 @@
               </v-col>
             </v-row>
             <v-row>
+
+              <v-col
+                cols="12"
+                sm="5"
+                class="px-8"
+              >
+                <label for="fileContent">Nội dung email (*): </label>
+                <input
+                  type="file"
+                  @change="onFileSelected"
+                  id="fileContent"
+                >
+              </v-col>
+              <v-col sm="2"></v-col>
               <v-col
                 cols="12"
                 sm="5"
                 class="px-8"
               >
                 <v-text-field
-                  label="Nội dung email"
+                  label="Tiêu đề email(*)"
                   :disabled="isViewMode"
-                  type="file"
+                  v-model="currentData.subjectemail"
+                  :rules="[rules.titleRule]"
+                ></v-text-field>
+              </v-col>
+            </v-row>
+            <v-row>
+              <v-col
+                cols="12"
+                sm="5"
+                class="px-8"
+              >
+                <v-text-field
+                  label="Tổng số khách mời"
+                  :disabled="true"
+                  type="number"
+                  v-show="isViewMode"
+                  v-model="currentData.total"
                 ></v-text-field>
               </v-col>
               <v-col sm="2"></v-col>
@@ -148,6 +178,7 @@
                   :disabled="true"
                   type="number"
                   v-show="isViewMode"
+                  v-model="currentData.sentemail"
                 ></v-text-field>
               </v-col>
             </v-row>
@@ -162,6 +193,7 @@
                   :disabled="true"
                   type="number"
                   v-show="isViewMode"
+                  v-model="currentData.waitemail"
                 ></v-text-field>
               </v-col>
               <v-col sm="2"></v-col>
@@ -175,9 +207,11 @@
                   :disabled="true"
                   type="number"
                   v-show="isViewMode"
+                  v-model="currentData.unsubcribe"
                 ></v-text-field>
               </v-col>
             </v-row>
+
           </v-container>
         </v-form>
       </v-card-text>
@@ -202,6 +236,7 @@ export default {
       validForm: false,
       rules: {
         campaignCodeRule: (value) => !!value || "Mã sự kiện bắt buộc nhập.",
+        titleRule: (value) => !!value || "Tiêu đề email bắt buộc nhập.",
         campaignNameRule: (value) => !!value || "Tên sự kiện bắt buộc nhập.",
         emailMatch: [
           (v) => !!v || "E-mail bắt buộc nhập.",
@@ -218,6 +253,7 @@ export default {
       selectedStatus: { value: 1, text: "Chưa kích hoạt" },
       selectedRole: null,
       listRole: [],
+      fileContent: null,
     };
   },
   created() {
@@ -228,6 +264,9 @@ export default {
     this.getDataInfo();
   },
   methods: {
+    onFileSelected(event) {
+      this.fileContent = event.target.files[0];
+    },
     /**
      * Lấy dữ liệu sự kiện nếu ở form view
      */
@@ -237,7 +276,7 @@ export default {
         return;
       }
       let id = this.$route.params.id;
-      CampaignService.getDataById(id)
+      CampaignService.getDataByIDCustom(id)
         .then((result) => {
           if (result && result.data) {
             me.currentData = result.data.data;
@@ -294,12 +333,18 @@ export default {
      */
     insertData() {
       const me = this;
-      CampaignService.insertData(this.currentData).then((result) => {
+      let param = new FormData();
+      param.append("campaigncode", this.currentData.campaigncode);
+      param.append("campaignname", this.currentData.campaignname);
+      param.append("subjectemail", this.currentData.subjectemail);
+      param.append("startdate", this.currentData.startdate);
+      param.append("enddate", this.currentData.enddate);
+      param.append("file", this.fileContent, this.fileContent.name);
+      CampaignService.addNewCampaign(param).then((result) => {
         if (result && result.data) {
           if (result.data.success) {
             me.$toast.success("Thêm mới sự kiện thành công!");
-            me.formMode = FormMode.View;
-            me.getDataInfo(result.data.data.idcampaign);
+            this.backToList();
           } else {
             me.$toast.error(result.data.errorMessage);
           }
@@ -338,6 +383,10 @@ export default {
       ) {
         return false;
       }
+      if (!this.fileContent) {
+        this.$toast.error("Bạn chưa chọn file nội dung email.");
+        return false;
+      }
       return true;
     },
 
@@ -357,6 +406,7 @@ export default {
           }
         }
       });
+      me.$toast.success("Đang gửi email cho khách mời.Vui lòng chờ!");
     },
   },
   watch: {
