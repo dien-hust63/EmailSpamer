@@ -160,6 +160,12 @@ export default {
           sortable: true,
           value: "email",
         },
+        {
+          text: "Số email đã gửi trong ngày",
+          align: "start",
+          sortable: true,
+          value: "numberinday",
+        },
       ],
       branchList: [],
       itemPaging: [

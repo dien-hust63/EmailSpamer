@@ -26,6 +26,19 @@ class CampaignService extends BaseService{
     return axios
       .get(`${this.apiURL}/${this.controller}/detail/${id}`);
   }
+
+  getEmailSetting(){
+    return axios
+      .get(`${this.apiURL}/${this.controller}/getEmailSetting`);
+  }
+
+  
+  updateEmailSetting(data){
+    return axios
+      .post(`${this.apiURL}/${this.controller}/updateEmailSetting`,data);
+  }
 }
+
+
 
 export default new CampaignService();

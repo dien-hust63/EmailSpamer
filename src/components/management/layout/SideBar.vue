@@ -126,7 +126,7 @@ export default {
       {
         icon: "mdi-home-circle-outline",
         modulename: "Thiết lập",
-        routename: "m-promotion",
+        routename: "m-setting",
       },
     ],
     listModuleParent: [],
