@@ -121,7 +121,7 @@ export default {
       CampaignService.getEmailSetting()
         .then((result) => {
           if (result && result.data) {
-            me.emailmax = parseInt(result.data.data);
+            me.emailmax = parseInt(result.data.data.data);
           }
         })
         .catch((e) => {
