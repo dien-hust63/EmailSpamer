@@ -17,6 +17,11 @@ class CampaignService extends BaseService{
       .post(`${this.apiURL}/${this.controller}/addNewCampaign`,param);
   }
 
+  updateCampaign(param){
+    return axios
+      .post(`${this.apiURL}/${this.controller}/updateCampaign`,param);
+  }
+
   /**
    * Lấy dữ liệu theo id
    * @param {*} param 

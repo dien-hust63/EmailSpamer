@@ -352,14 +352,22 @@ export default {
       });
     },
     /**
-     * sửa chi nhánh
+     * sửa chieens dichj
      */
     updateData() {
       const me = this;
-      CampaignService.updateData(
-        this.currentData,
-        this.currentData?.idcampaign
-      ).then((result) => {
+      let param = new FormData();
+      param.append("campaigncode", this.currentData.campaigncode);
+      param.append("campaignname", this.currentData.campaignname);
+      param.append("subjectemail", this.currentData.subjectemail);
+      param.append("startdate", this.currentData.startdate);
+      param.append("enddate", this.currentData.enddate);
+      param.append("idcampaign", this.currentData.idcampaign);
+      if (this.fileContent) {
+        param.append("file", this.fileContent, this.fileContent?.name);
+      }
+
+      CampaignService.updateCampaign(param).then((result) => {
         if (result && result.data) {
           if (result.data.success) {
             me.$toast.success("Sửa sự kiện thành công!");
@@ -383,7 +391,7 @@ export default {
       ) {
         return false;
       }
-      if (!this.fileContent) {
+      if (!this.fileContent && this.formMode == FormMode.Add) {
         this.$toast.error("Bạn chưa chọn file nội dung email.");
         return false;
       }
