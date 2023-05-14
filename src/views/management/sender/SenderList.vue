@@ -164,7 +164,7 @@ export default {
           text: "Số email đã gửi trong ngày",
           align: "start",
           sortable: true,
-          value: "numberinday",
+          value: "sentemail",
         },
       ],
       branchList: [],
