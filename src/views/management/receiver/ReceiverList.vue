@@ -42,7 +42,7 @@
           <v-pagination
             v-model="pageIndex"
             :length="pageShow"
-            :total-visible="pageShow"
+            :total-visible="maxPageShow"
           ></v-pagination>
         </v-col>
         <v-col>
@@ -183,6 +183,7 @@ export default {
           if (result.data.success) {
             me.$toast.success("Nhập khẩu thành công!");
             me.tableKey = !me.tableKey;
+            me.getDefaultData();
           } else {
             me.$toast.error(result.data.errorMessage);
           }
@@ -226,8 +227,7 @@ export default {
           me.branchList = result.data.listPaging;
           me.totalPage = result.data.total;
           let currentPageShow = Math.ceil((me.totalPage * 1.0) / me.pageSize);
-          me.pageShow =
-            currentPageShow < me.maxPageShow ? currentPageShow : me.maxPageShow;
+          me.pageShow = currentPageShow;
         }
       });
     },
@@ -364,6 +364,7 @@ export default {
     pageSize: {
       handler: function (val) {
         if (val > 0) {
+          this.pageIndex = 1;
           this.getDefaultData();
         }
       },
