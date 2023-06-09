@@ -12,6 +12,11 @@ class CampaignService extends BaseService{
       .post(`${this.apiURL}/${this.controller}/sendEmail`,param);
   }
 
+  testSendEmail(param){
+    return axios
+      .post(`${this.apiURL}/${this.controller}/testSendEmail`,param);
+  }
+
   addNewCampaign(param) {
     return axios
       .post(`${this.apiURL}/${this.controller}/addNewCampaign`,param);

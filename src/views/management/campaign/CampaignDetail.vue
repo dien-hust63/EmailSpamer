@@ -28,17 +28,17 @@
         </v-icon>
         Kích hoạt
       </v-btn>
-      <!-- <v-btn
-        v-show="isViewMode && currentData.statusid == 2"
-        color="error"
-        @click="deactiveAccount"
+      <v-btn
+        v-show="isViewMode && currentData.statusid != 2"
+        color="primary"
+        @click="testBeforeActive"
         class="ml-4"
       >
         <v-icon left>
-          mdi-block-helper
+          mdi-package-variant-closed-check
         </v-icon>
-        Ngừng kích hoạt
-      </v-btn> -->
+        Kiểm thử
+      </v-btn>
       <v-btn
         v-show="isViewMode"
         color="#F4F5F9"
@@ -216,6 +216,38 @@
         </v-form>
       </v-card-text>
     </div>
+    <base-popup
+      :isShowPopup="isShowPopupEmail"
+      @closePopup="closeEmailPopup"
+      maxwidth="760px"
+      :title="titlePopup"
+      @saveData="handleTestSendEmail"
+    >
+      <v-card-text>
+        <v-form
+          ref="form"
+          v-model="validFormEmail"
+          lazy-validation
+          class="role-form"
+        >
+          <v-container>
+            <v-row>
+              <v-col
+                cols="12"
+                sm="12"
+              >
+                <v-text-field
+                  label="Email (*)"
+                  required
+                  v-model="emailtest"
+                ></v-text-field>
+              </v-col>
+
+            </v-row>
+          </v-container>
+        </v-form>
+      </v-card-text>
+    </base-popup>
   </div>
 </template>
 
@@ -223,12 +255,20 @@
 import FormMode from "../../../enum/FormModeEnum";
 import AccountStatus from "../../../enum/AccountStatusEnum";
 import { FactoryService } from "../../../service/factory/factory.service";
+import BasePopup from "../../../components/common/BasePopup.vue";
 const CampaignService = FactoryService.get("campaignService");
 import moment from "moment";
 export default {
   name: "CampaignDetail",
+  components: {
+    BasePopup,
+  },
   data() {
     return {
+      isShowPopupEmail: false,
+      validFormEmail: true,
+      emailtest: "",
+      titlePopup: "Kiểm thử",
       title: "Thêm sự kiện",
       formMode: FormMode.Add,
       isViewMode: false,
@@ -266,6 +306,29 @@ export default {
   methods: {
     onFileSelected(event) {
       this.fileContent = event.target.files[0];
+    },
+    closeEmailPopup() {
+      this.emailtest = "";
+      this.isShowPopupEmail = false;
+    },
+    handleTestSendEmail() {
+      const me = this;
+      let param = {
+        CampaignID: this.currentData.idcampaign,
+        Email: this.emailtest,
+      };
+      CampaignService.testSendEmail(param).then((result) => {
+        if (result && result.data) {
+          if (result.data.success) {
+            me.$toast.success("Gửi email thành công!");
+            me.formMode = FormMode.View;
+            me.getDataInfo(me.currentData.idcampaign);
+          } else {
+            me.$toast.error(result.data.errorMessage);
+          }
+        }
+      });
+      me.$toast.success("Đang gửi email cho khách mời.Vui lòng chờ!");
     },
     /**
      * Lấy dữ liệu sự kiện nếu ở form view
@@ -397,7 +460,9 @@ export default {
       }
       return true;
     },
-
+    testBeforeActive() {
+      this.isShowPopupEmail = true;
+    },
     activeAccount() {
       const me = this;
       let param = {
