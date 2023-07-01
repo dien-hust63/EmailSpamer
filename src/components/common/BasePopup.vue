@@ -21,7 +21,7 @@
               color="primary"
               @click="saveData"
             >
-              Lưu
+              {{saveText}}
             </v-btn>
           </v-card-actions>
         </v-card>
@@ -43,6 +43,10 @@ export default {
     maxwidth: String,
     title: String,
     isFullScreen: Boolean,
+    saveText: {
+      type: String,
+      default: "Lưu",
+    },
   },
   methods: {
     closePopup() {
